@@ -12,8 +12,13 @@
 	 
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/front/css/themes/zephyr/reset.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/front/css/themes/zephyr/style.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/front/css/themes/zephyr/grid.css') }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/front/css/themes/zephyr/fixe_bootstrap.css') }}">
      <link rel="stylesheet" href="{{ asset('bundles/front/css/fixe_menu.css') }}"  type="text/css" media="screen">
-	 
+
      {% block stylesheets %}{% endblock %}
      {% block stylesheets_admin %}{% endblock %}
 	 
@@ -22,19 +27,18 @@
 	<script>
     $( document ).ready(function() {
 		$( ".dropdown" ).click(function(event) {
-			// stop bootstrap.js to hide the parents
 			event.stopPropagation();
-			// hide the open children
 			$( this ).find(".dropdown").removeClass('open');
-			// add 'open' class to all parents with class 'dropdown-submenu'
 			$( this ).parents(".dropdown").addClass('open');
-			// this is also open (or was)
 			$( this ).toggleClass('open');
 		});
     });	
 	</script>
-
-{% block javascripts %}{% endblock %}
+	{% block javascripts %}{% endblock %}
+	<script src="{{ asset('bundles/front/js/themes/zephyr/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ asset('bundles/front/js/themes/zephyr/superfish.js') }}"></script>
+    <script src="{{ asset('bundles/front/js/themes/zephyr/jquery.hoverIntent.minified.js') }}"></script>
+    <script src="{{ asset('bundles/front/js/themes/zephyr/tms-0.4.1.js') }}"></script>
 
       <!--[if lt IE 8]>
        <div style=' clear: both; text-align:center; position: relative;'>
@@ -45,6 +49,7 @@
     <![endif]-->
     <!--[if lt IE 9]>
 		<script src="{{ asset('bundles/front/js/html5shiv.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('bundles/front/js/themes/zephyr/html5.js') }}"></script>
 		<link rel="stylesheet" media="screen" href="{{ asset('bundles/front/css/ie.css') }}">
     <![endif]-->
      </head>
@@ -57,9 +62,9 @@
 	 </div>
 	 </noscript>
 	 
-<body class="page1" id="top">
+<body>
 <!--==============================Header=================================-->
-	<header> {{ include('FrontBundle:Default:header.html.twig') }}</header>
+	{{ include(['FrontBundle:',theme,':header.html.twig']|join) }}
 	 
 
 <!--==============================Content=================================-->
@@ -67,7 +72,7 @@
 		{% block body_site %}{% endblock %}
 	</div>
 <!--==============================footer=================================-->
- 	<footer>{% block footer %}{{ include('FrontBundle:Default:footer.html.twig') }}{% endblock %}</footer>
+ 	{% block footer %}{{ include(['FrontBundle:',theme,':footer.html.twig']|join) }}{% endblock %}
 
 </body>
 </html>

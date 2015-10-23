@@ -1,7 +1,7 @@
-{% extends 'FrontBundle:Default:index.html.twig' %}
+{% extends ['FrontBundle:',theme,':index.html.twig']|join %}
 
 {% block body_site %}
-<div>
-		{{ html.AfficheBloc(page,'Demo') }}
+<div id="standard_content">
+		{{ html.AfficheBloc(page,theme) }}
 </div>
 {% endblock %}

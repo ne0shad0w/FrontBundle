@@ -1,4 +1,4 @@
-{% extends 'FrontBundle:Default:index.html.twig' %}
+{% extends ['FrontBundle:',theme,':index.html.twig']|join %}
 
 {% block body_site %}
 <div style="border: 1px #000 solid; margin: 10px; padding: 10px;">
