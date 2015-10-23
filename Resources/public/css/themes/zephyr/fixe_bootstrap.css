@@ -1,0 +1,20 @@
+.navbar-default { 
+	color:#fff;
+}
+
+.navbar-brand { 
+	padding: 10px;
+
+}
+
+.navbar-nav > li > a {
+	padding-top:11px;
+	width:100%;	
+}
+
+.div-nav a { color:#fff ; }
+
+.nav > li > a:hover , .nav > li > a:focus {
+	background: url(../../../images/themes/zephyr/bg-li.png) 0 0 repeat;
+	
+}

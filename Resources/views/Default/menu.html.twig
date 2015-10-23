@@ -1,0 +1,23 @@
+	{% block menuSite %}
+		{% block menu %}
+		<nav class="navbar navbar-default">
+				  <div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
+				
+					<a class="navbar-brand">Demo</a>
+				  </div>
+				
+			<div class="collapse navbar-collapse">
+				<div class="collapse navbar-collapse" id="admin-navbar-collapse-1">
+						{{ knp_menu_render('main', {'currentClass': 'activelink', 'template': 'FrontBundle:Menu:knp_menu.html.twig'}) }}
+			 	</div>
+			</div>
+		</nav>
+		<div id="chemin" style="text-align:left; width:100%; heigth:30px;">{{ breadcrumb(app.request.attributes.get('_route') , app.request.get('_route_params') )|raw }}</div> 
+		{% endblock %}
+	{% endblock %}			

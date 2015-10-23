@@ -1,0 +1,74 @@
+{% import 'FrontBundle:Macro:AfficheBloc.html.twig' as html %}
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+     <title>{% block title %}Developpement{% endblock %}</title>
+     <meta charset="utf-8">
+     <meta name = "format-detection" content = "telephone=no" />
+	 
+	 <link rel="stylesheet" href="{{ asset('editeCSS/custom.css') }}" type="text/css" media="screen" />
+	 <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" /> 
+     <link rel="icon" href="{{ asset('bundles/front/images/favicon.ico') }}">
+	 
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+     <link rel="stylesheet" href="{{ asset('bundles/front/css/fixe_menu.css') }}"  type="text/css" media="screen">
+	 
+     {% block stylesheets %}{% endblock %}
+     {% block stylesheets_admin %}{% endblock %}
+	 
+     <script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
+	<script>
+    $( document ).ready(function() {
+		$( ".dropdown" ).click(function(event) {
+			// stop bootstrap.js to hide the parents
+			event.stopPropagation();
+			// hide the open children
+			$( this ).find(".dropdown").removeClass('open');
+			// add 'open' class to all parents with class 'dropdown-submenu'
+			$( this ).parents(".dropdown").addClass('open');
+			// this is also open (or was)
+			$( this ).toggleClass('open');
+		});
+    });	
+	</script>
+
+{% block javascripts %}{% endblock %}
+
+      <!--[if lt IE 8]>
+       <div style=' clear: both; text-align:center; position: relative;'>
+         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+         </a>
+      </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+		<script src="{{ asset('bundles/front/js/html5shiv.js') }}"></script>
+		<link rel="stylesheet" media="screen" href="{{ asset('bundles/front/css/ie.css') }}">
+    <![endif]-->
+     </head>
+	 
+     <noscript>
+	 <div style="width:100%;height:40px;background-color:#ffff90;z-index:999999;position:relative;text-align:center;color:#000;">
+		<b>JavaScript semble être désactivé dans votre navigateur.</b>
+		<br>
+		Vous devez avoir JavaScript activé dans votre navigateur pour utiliser toutes les fonctionnalités de ce site.
+	 </div>
+	 </noscript>
+	 
+<body class="page1" id="top">
+<!--==============================Header=================================-->
+	<header> {{ include('FrontBundle:Default:header.html.twig') }}</header>
+	 
+
+<!--==============================Content=================================-->
+	<div class="content">
+		{% block body_site %}{% endblock %}
+	</div>
+<!--==============================footer=================================-->
+ 	<footer>{% block footer %}{{ include('FrontBundle:Default:footer.html.twig') }}{% endblock %}</footer>
+
+</body>
+</html>
+

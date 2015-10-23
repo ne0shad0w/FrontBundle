@@ -1,0 +1,88 @@
+{% extends 'FrontBundle:Default:index.html.twig'%}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('table/bootstrap-table.css') }}">
+<link rel="stylesheet" href="{{ asset('table/bootstrap-table-public.css') }}">
+
+{% endblock %}
+
+{% block carrousel %}
+<div class="slider_wrapper ">
+    <div id="camera_wrap" class="">
+          <div data-src="{{asset('upload/medias/caroussel/parc_industriel.png')}}" >
+            <div class="caption fadeIn" style="font-size:18px;">
+              <div class="title">Parc industriel<br><img src="{{ asset('images/parcindustriel.png') }}" alt=""></div>
+              <a href="{{ url('zephyr_page',{ 'name' : 'parcindustrielphase1'}) }}" class=""><span>PHASE 1</span>TERRAINS DISPONIBLES</a>
+              <a href="{{ url('zephyr_page',{ 'name' : 'parcindustrielphase2'}) }}"><span>PHASE 2</span>TERRAINS DISPONIBLES</a>
+              <a href="#"><span>PHASE 3</span>EN DÉVELOPPEMENT</a>
+			  <a href="#"><span>PHASE 4</span>EN DÉVELOPPEMENT</a>
+            </div>
+          </div>
+
+          <div data-src="{{asset('upload/medias/caroussel/parc_industriel.png')}}" >
+            <div class="caption fadeIn" style="font-size:18px;">
+              <div class="title">Parc industriel<br><img src="{{ asset('images/parcindustriel.png') }}" alt=""></div>
+              <a href="{{ url('zephyr_page',{ 'name' : 'parcindustrielphase1'}) }}" class=""><span>PHASE 1</span>TERRAINS DISPONIBLES</a>
+              <a href="{{ url('zephyr_page',{ 'name' : 'parcindustrielphase2'}) }}"><span>PHASE 2</span>TERRAINS DISPONIBLES</a>
+              <a href="#"><span>PHASE 3</span>EN DÉVELOPPEMENT</a>
+			  <a href="#"><span>PHASE 4</span>EN DÉVELOPPEMENT</a>
+            </div>
+          </div>
+
+
+    </div>
+</div>
+<div class="clear mt"></div>
+<div class="p1_top">  
+	<div class=" container_12">
+      <div class="grid_12 fbabonne" >
+		<div class="fb-follow" data-href="https://www.facebook.com/pages/Municipalit%C3%A9-de-St-Urbain/155623884536015" data-height="200" data-colorscheme="light" data-layout="standard" data-show-faces="false"></div>        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block body_site %}
+<div class="content">
+	<div class="container_12 p_bot">
+		{% for section in page.blocrow %}
+			<section id="{{ section.nomBlocrow }}" class="{{ section.classBlocrow }} row-fluid clearfix" style="{{ section.styleBlocrow }} margin-top:10px;">
+			{% for col in section.bloccol %}
+				{% if col.htmlBloccol != "" %}
+					{% set width = '' %}{% set colsm='' %}
+					{% if  ( col.largeurBloccol  > 0 ) and ( col.largeurBloccol  <= 12 ) %}
+						{% set colsm = ['grid_',col.largeurBloccol]|join  %}
+					{% else %}
+						{% set width = ['width:',col.largeurBloccol,'px;']|join  %}
+					{% endif %}
+					{% set file =  [col.template.nomfichier,'.html.twig']|join %}
+					{{ include(['ZephyrBundle:Default:',file]|join) }}
+				{% endif %}
+			{% endfor %}
+			</section>
+			
+		{% endfor %}
+	 
+	
+		<table id="events-table" data-url="{{ url('adm_document_list') }}" data-sort-name="dateajout" data-sort-order="desc" data-show-header="false" data-height="auto"  data-search="true" data-pagination="true" >
+		<thead>
+		<tr>
+			<th data-field="name" data-sortable="true" >Type</th>
+			<th data-field="dateajout" data-sortable="true" >Date</th>
+		</tr>
+		</thead>
+	</table>
+	</div>
+</div>
+
+<script src="{{ asset('table/bootstrap-table.js') }}"></script>
+<script src="{{ asset('table/bootstrap-table-all.min.js') }}"></script>
+<script src="{{ asset('table/locale/bootstrap-table-fr-FR.js') }}"></script>
+
+<script src="{{ asset('table/document_public.js') }}"></script>
+
+{% endblock %}
+
+{%block footer%}{{ include('FrontBundle:Default:footer.html.twig') }}{% endblock %}

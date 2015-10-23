@@ -1,0 +1,10 @@
+    <div id="{{ col.nomBloccol }}" class="{{ col.classBloccol }} col-xs-12 {{ colsm }}" style="float:left;{{ width }}">
+      <div class="box ">
+	  	<div class="maxheight">
+		
+		{% set texte = col.htmlBloccol|extracthtml('page') %}
+		  {{ texte|raw }}	
+	  	</div>
+      	<a href="{{url('zephyr_page',{'name': col.htmlBloccol|extracthtml('lienpage') })}}">Voir</a>
+	  </div>
+    </div>

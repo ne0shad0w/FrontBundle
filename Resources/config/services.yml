@@ -1,0 +1,19 @@
+services:
+    zephyr.twig.front_extension:
+        class: ne0shad0w\FrontBundle\FrontBundle\Twig\FrontExtension
+        tags:
+            - { name: twig.extension }
+
+    FrontBundleMenu.builder:
+        class: ne0shad0w\FrontBundle\FrontBundle\Menu\Builder
+        arguments: ["@knp_menu.factory", "@doctrine.orm.entity_manager","@service_container" ,"@translator"]
+
+    FrontBundleMenu.menu.user:
+        class: Knp\Menu\MenuItem
+        factory_service: FrontBundleMenu.builder
+        factory_method: createMainMenu
+        arguments: ["@request"]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: main } # L'alias est très important, c'est avec lui que vous appellerez votre menu dans la vue
+

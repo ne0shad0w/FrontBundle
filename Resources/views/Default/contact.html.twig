@@ -1,0 +1,80 @@
+{% extends 'FrontBundle:Default:index.html.twig'%}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('bundles/sturbain/css/form.css') }}">
+{% endblock%}
+{% block javascripts %}
+	{{ parent() }}
+     <script src="{{ asset('bundles/sturbain/js/TMForm.js') }}"></script>
+
+{% endblock %}
+{% block body_site %}
+
+<div class="content">
+  <div class="container_12">
+    <div class="grid_8">
+      <h3>Comment nous trouver</h3>
+            <div class="map">
+            <figure class="">
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2692.5480648500093!2d-70.53882199999997!3d47.557123999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cbf0d0dbda126c5%3A0x812fe67559ba7464!2sSaint-Urbain%2C+QC+G0A!5e0!3m2!1sfr!2sca!4v1431005817430" width="600" height="450" frameborder="0" style="border:0"></iframe>
+               </figure>
+              {% for section in page.blocrow %}
+				<section id="{{ section.nomBlocrow }}" class="{{ section.classBlocrow }} row-fluid clearfix" style="{{ section.styleBlocrow }}">
+				{% for col in section.bloccol %}
+					{% set width = '' %}{% set colsm='' %}
+					{% if  ( col.largeurBloccol  > 0 ) and ( col.largeurBloccol  <= 12 ) %}
+						{% set colsm = ['col-sm-',col.largeurBloccol]|join  %}
+					{% else %}
+						{% set width = ['width:',col.largeurBloccol,'px;']|join  %}
+					{% endif %}
+					<div id="{{ col.nomBloccol }}" class="{{ col.classBloccol }} col-xs-12 {{ colsm }}" style="float:left;{{ width }}" >
+						{{ col.htmlBloccol|raw }} 
+					</div>
+				{% endfor %}
+				</section>
+				
+			{% endfor %}
+          </div>
+    </div>
+    <div class="grid_4">
+      <h3>Formulaire de contact</h3>
+            <form id="form">
+                            
+                      <div class="success_wrapper">
+                      <div class="success-message">Message envoyé.</div>
+                      </div>
+                      <label class="name">
+                      <input type="text" placeholder="Votre nom" data-constraints="@Required @JustLetters" />
+                      <span class="empty-message">*Ce champ est obligatoire.</span>
+                      <span class="error-message">*Nom invalide.</span>
+                      </label>
+                    
+                      <label class="email">
+                      <input type="text" placeholder="Courriel" data-constraints="@Required @Email" />
+                      <span class="empty-message">*Ce champ est obligatoire.</span>
+                      <span class="error-message">*Courriel invalide.</span>
+                      </label>
+                       <label class="phone">
+                          <input type="text" placeholder="Téléphone (111-222-3333)" data-constraints="@Required @JustNumbers"/>
+                          <span class="empty-message">*Ce champ est obligatoire.</span>
+                          <span class="error-message">*Numéro de téléphone invalide.</span>
+                          </label>
+                      <label class="message">
+                      <textarea placeholder="Message" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
+                      <span class="empty-message">*Ce champ est obligatoire.</span>
+                      <span class="error-message">*Le message est trop court. 20 caractères minimum.</span>
+                      </label>
+                      <div>
+                      <div class="clear"></div>
+                      <div class="btns">
+                      <a href="#" data-type="submit" class="btn">Envoyer le message</a></div>
+                      </div>
+                      </form>   
+    </div>
+  </div>   
+</div>
+
+	
+{% endblock %}
+
+{%block footer%}{{ include('FrontBundle:Default:footer.html.twig') }}{% endblock %}

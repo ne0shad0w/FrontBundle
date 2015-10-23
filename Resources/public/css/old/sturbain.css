@@ -1,0 +1,127 @@
+/* CSS Document */
+.container {
+    width: 970px !important;
+}
+
+section {
+	margin: 5px 0 5px 0;	
+	width:100%;
+	min-height:10px;
+
+}
+header h1 a { height: 135px !important; }
+.slogan { padding-top:75px !important;}
+.h_search { padding-top:63px !important;}
+.copy {
+	padding-left: 0 !important;	
+}
+
+/* CUSTOM MENU */
+
+header .navbar {
+	background-color:#10a1d6;
+	border:0;
+	margin-bottom: 0 ;
+	min-height:44px;
+}
+header .navbar-nav > li > a {
+    line-height: 15px !important;
+}
+header ul { background-color:#10a1d6; }
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	background-color:#12b2f0;
+}
+header .container { padding:0; }
+header .navbar-collapse { padding:0; }
+header ul > li { width:323px; text-align:center; }
+header ul > li > a { 
+	color:#60d0fc !important; 
+	text-transform:uppercase;
+	font-size:18px;
+	font-weight:bold;
+}
+header ul > li > a:hover { 
+	text-decoration:none !important;
+	color:#fff !important;
+}
+
+header .dropdown ul > li > a { 
+	color:#fff !important; 
+	text-transform:uppercase;
+	font-size:18px;
+	font-weight:bold;
+}
+header .dropdown ul > li > a:hover { 
+	text-decoration:none !important;
+	color:#60d0fc !important;
+	background-color:#fff !important;
+}
+
+header ul > li:hover { 
+	background-color:#12b2f0;
+
+}
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    background-color: #fff;
+    color: #60d0fc !important;
+    outline: 0 none;
+    text-decoration: none;
+}
+.navbar-default .navbar-toggle {
+    background-color: #ddd ;
+}
+header .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+		background-color:#12b2f0 !important;
+		color:#fff !important;
+}
+/*header .dropdown > a { padding-bottom: 0 ;}*/
+header .dropdown-menu { background-color:#12b2f0; border:0; }
+header .menu_level_1 li > a:hover { 
+	background-color:#10a1d6;
+
+}
+.caption .title {
+	font-size:34px;	
+	padding: 20px 0;
+}
+@media (max-width: 1000px) { 
+	header ul > li { width:150px; text-align:center; }
+	header ul > li > a { 
+		color:#60d0fc !important; 
+		text-transform:uppercase;
+		font-size:15px;
+		font-weight:bold;
+	}
+	.dropdown-menu {
+		min-width: 150px;
+	}
+
+}
+
+@media (max-width: 640px) { 
+.navbar-nav {
+    margin: 7.5px 15px;
+	text-align:center;
+}
+header ul > li { width:100%; text-align:center; }
+header .navbar-nav > li > a {
+    line-height: 20px !important;
+}
+header .dropdown > a { padding-bottom: 10px ;}
+
+}
+
+/* Slider modification  */
+
+.caption a { 
+	min-width:310px !important; 
+	height:100px;
+	float:left;
+	line-height:22px;	
+	padding:20px 0 0 20px;
+}
+.caption a + a {
+    margin-left: 0px;
+}
+
+/* ********************** */

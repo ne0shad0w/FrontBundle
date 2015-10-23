@@ -1,0 +1,16 @@
+        <div id="{{ col.nomBloccol }}" class="{{ col.classBloccol }} col-xs-12 {{ colsm }}" style="float:left;{{ width }}">
+           <div class="box">
+              <div class="block">
+                <div class="text-block">
+                     <span class="font-16">Zéphyr</span>
+                     <a href="{{url('zephyr_page',{'name': col.htmlBloccol|extracthtml('lienpagetitre') }) }}" class="font-19 hov">{{ col.htmlBloccol|extracthtml('titre') }}</a>
+                </div>
+              </div>
+              <div class="content-box">
+				{% set texte = col.htmlBloccol|extracthtml('page') %}
+				  {{ texte|raw }}	
+      			<a href="{{url('zephyr_page',{'name': col.htmlBloccol|extracthtml('lienpage') }) }}" class="button">Voir</a>
+              </div>
+           </div>
+           
+        </div>

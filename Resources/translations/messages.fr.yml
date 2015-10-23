@@ -1,0 +1,39 @@
+footer:
+     citoyen: "Citoyens"
+     municipalite: "Municipalité"
+     entreprise: "Entreprises"
+     copyright: "Tous droits réservés"
+     loisirs: "Loisirs"
+     bibliotheque: "Bibliothèque"
+     politiques: "Politiques"
+     inspection: "Permis & Inspection"
+     matieresresiduelles: "Matière résiduelles"
+     parcindustriel: "Parc industriel"
+     lepetitcolporteur: "Le petit colporteur"
+     seancesduconseil: "Séance du conseil"
+     servicesmunicipaux: "Services municipaux"
+     parcindustrielphase1: "Phase 1"
+     parcindustrielphase2: "Phase 2"
+     matrice: "Matrice graphique"
+
+
+
+
+menu:
+     accueil: "Accueil"
+     propos: "À propos"
+     viemunicipale: "Municipalité"
+     services: "Services"
+     contact: "Contact"
+
+
+
+
+contact:
+     formulaire: "formulaire de contact"
+     comment: "comment nous trouver"
+     nom: "Votre nom"
+     courriel: "Courriel"
+     telephone: "Téléphone"
+     message: "Message"
+     envoyer: "Envoyer le message"

@@ -1,0 +1,94 @@
+{% extends ['FrontBundle:',theme,':index.html.twig']|join %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script src="{{ asset('bundles/front/js/themes/zephyr/jquery-1.7.1.min.js') }}"></script> 
+    <script>
+      $(window).load(function(){
+          $('.slider')._TMS({
+              show:0,
+              pauseOnHover:false,
+              prevBu:'.prev',
+              nextBu:'.next',
+              playBu:false,
+              duration:1000,
+              preset:'fade', <!--'centralExpand','fadeThree','simpleFade','gSlider','vSlider','slideFromLeft','slideFromTop','diagonalFade','diagonalExpand','fadeFromCenter','zabor','verticalLines','gorizontalLines'-->
+              pagination:true,
+			  paginationCl:'pagination2',
+              pagNums:false,
+              slideshow:8000,
+              numStatus:false,
+              banners:'fromLeft',
+		      waitBannerAnimation:false,
+			  progressBar:false
+          })		
+      })
+    </script>
+	
+{% endblock %}
+
+{% block body_site %}
+<section id="content">         
+  <div class="container_12">
+    <div class="wrapper">
+	    <div id="slide">
+            <div class="slider">
+                <ul class="items">
+	                <li><img src="{{ asset('bundles/front/images/themes/zephyr/slide.png') }}" alt="">
+	                    <div class="banner">
+                           <div class="inner-button">
+                           	<span>Graphisme</span>
+                           	<strong>web</strong>
+                           	<ul class="banner-list">
+                           	    	<li><a href="#">Sur mesure, par nous, pour vous</a></li>
+                           	     <li><a href="#">Sélection et modifications de modèles</a></li>
+                           	     <li><a href="#">Encarts publicitaires</a></li>
+                           	</ul>
+<!--                           	<a href="#" class="button-banner">Voir</a>
+-->                           </div>
+                           
+                        </div>
+	                </li>
+	                <li><img src="{{ asset('bundles/front/images/themes/zephyr/slide-1.png') }}" alt="">
+	                    <div class="banner">
+                           <div class="inner-button">
+                           	<span>Programmation</span>
+                           	<strong>Web</strong>
+                           	<ul class="banner-list">
+                           	    	<li><a href="#">Sites Web vitrines</a></li>
+                           	    	<li><a href="#">Sites Web mobiles</a></li>
+                           	     <li><a href="#">e-commerce</a></li>
+                           	     <li><a href="#">CMS</a></li>
+                           	</ul>
+<!--                           	<a href="#" class="button-banner">Voir</a>
+-->                           </div>
+                           
+                        </div>
+	                </li>
+	                <li><img src="{{ asset('bundles/front/images/themes/zephyr/slide-2.png') }}" alt="">
+	                    <div class="banner">
+                           <div class="inner-button">
+                           	<span>Hébergement</span>
+                           	<strong>web</strong>
+                           	<ul class="banner-list">
+                           	    	<li><a href="#">Forfaits intéressants</a></li>
+                           	     <li><a href="#">Serveurs fiables</a></li>
+                           	     <li><a href="#">Rabais avantageux</a></li>
+                           	</ul>
+<!--                           	<a href="#" class="button-banner">Learn More</a>
+-->                           </div>
+                           
+                        </div>
+	                </li>
+                </ul>
+            </div>
+            <a href="#" class="prev">&nbsp;</a><a href="#" class="next">&nbsp;</a>
+		</div>
+        
+		{{ html.AfficheBloc(page,theme) }}                       
+         
+     </div><!--the end of wrapper-->
+  </div>
+</section>
+
+{% endblock%}

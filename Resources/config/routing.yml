@@ -1,0 +1,13 @@
+zephyr_homepage:
+    path:     /
+    defaults: { _controller: FrontBundle:Default:index }
+
+zephyr_page:
+    path:     /page/{name}
+    defaults: { _controller: FrontBundle:Default:page }
+
+search:
+    path:     /recherche
+    defaults: { _controller: FrontBundle:Recherche:index }
+
+        

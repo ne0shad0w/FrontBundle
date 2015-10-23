@@ -1,0 +1,4 @@
+        <div id="{{ col.nomBloccol }}" class="{{ col.classBloccol }} {{ colsm }}" style="{{ width }}">
+				{% set texte = col.htmlBloccol|extracthtml('page') %}
+				{{ texte|raw }}	
+        </div>

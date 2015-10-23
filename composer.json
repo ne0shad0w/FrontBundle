@@ -1,0 +1,17 @@
+{
+    "name": "ne0shad0w/zephyr-front-bundle",
+    "description": "Front du site web",
+    "authors": [
+        {
+            "name": "Steve Gaudreault"
+        }
+    ],
+    "require": {
+        "ne0shad0w/zephyr-admincore-bundle": "master"
+    },
+     "autoload": {
+          "psr-4": {
+              "ne0shad0w\\FrontBundle\\FrontBundle\\" : ""
+		  }
+	 }
+}

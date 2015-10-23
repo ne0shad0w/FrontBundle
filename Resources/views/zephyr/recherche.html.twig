@@ -1,0 +1,16 @@
+{% extends ['FrontBundle:',theme,':index.html.twig']|join %}
+
+{% block body_site %}
+<div class="content">
+	<div class="container_12 p_bot">
+		<div id="recherche">Résultat de la recherche pour '{{ chaine }}': </div>
+	
+	{% for page in s %}
+			<br>- <a href="{{ url('zephyr_page',{'name': page.section.page.canonicalPage }) }}" >{{ page.section.page.nomPage }}</a>			
+		{% endfor %}
+
+	</div>
+</div>
+{% endblock%}
+
+{%block footer%}{{ include('FrontBundle:Default:footer.html.twig') }}{% endblock %}

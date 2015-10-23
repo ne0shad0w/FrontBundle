@@ -1,0 +1,34 @@
+{% macro AfficheBloc(page,theme = 'Default') %}
+ 		{% import _self as html %}
+		{% for section in page.blocrow %}
+			<section id="{{ section.nomBlocrow }}" class="{{ section.classBlocrow }} row-fluid clearfix" style="{{ section.styleBlocrow }} margin-top:10px;">
+				{% if section.template is not null %}
+					{{ include(['FrontBundle:',theme,':', section.template.nomfichier ,'.html.twig']|join) }}
+				{% else %}
+					{{ html.AfficherColHTML(section , theme ) }}
+				{% endif %}
+			</section>
+		{% endfor %}
+{% endmacro %}
+
+{% macro AfficherColHTML(section,theme = 'Default') %}
+				{% for col in section.bloccol %}
+					{% if col.translations != "" %}
+						{% set width = '' %}{% set colsm='' %}
+						{% if  ( col.largeurBloccol  > 0 ) and ( col.largeurBloccol  <= 12 ) %}
+							{% set colsm = ['col-xs-',col.largeurBloccol]|join  %}
+						{% else %}
+							{% set width = ['width:',col.largeurBloccol,'px;']|join  %}
+						{% endif %}
+						
+						{% if col.template is not null %}
+							{% set file =  [col.template.nomfichier,'.html.twig']|join %}
+							{{ include(['FrontBundle:',theme,':',file]|join) }}
+						{% else %}
+							{% set texte = col.htmlBloccol %}
+							 {{ texte|raw }}	 
+						{% endif %}
+
+					{% endif %}
+				{% endfor %}
+{% endmacro %}
